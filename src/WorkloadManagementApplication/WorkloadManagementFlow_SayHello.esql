@@ -1,19 +1,10 @@
 
 
-CREATE COMPUTE MODULE OrderRequest_Confirm_Or_Deny_Order
+CREATE COMPUTE MODULE WorkloadManagementFlow_SayHello
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		CALL CopyEntireMessage();
-		
-		SET OutputRoot.XMLNSC = InputLocalEnvironment.ResultRoot.XMLNSC;
-		SET OutputRoot.XMLNSC.Order.CreditScore = InputRoot.XMLNSC.Message.CreditScore;
-		
-		IF OutputRoot.XMLNSC.Order.CreditScore > 65 THEN
-			SET OutputRoot.XMLNSC.Order.Status = 'Accepted';
-		ELSE
-			SET OutputRoot.XMLNSC.Order.Status = 'Declined';
-		END IF;
-					
+		SET OutputRoot.XMLNSC.Message = 'Hello from ' || BrokerName || ' at ' || CAST(CURRENT_TIMESTAMP AS CHARACTER);
 		RETURN TRUE;
 	END;
 
