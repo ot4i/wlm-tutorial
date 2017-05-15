@@ -233,7 +233,7 @@
 										
 										</li>
 									
-										<li> In the console window run the PerfHarness Test Tool by typing the following command:<br><code>java -ms512M -mx512M -cp <span class="varname">{PerfHarnessInstallPath}</span>/perfharness.jar JMSPerfHarness -tc http.HTTPRequestor -rl 60 -jh localhost -jp <span class="varname">HTTPPort</span> -mf <span class="varname">{WorkspacePath}</span>/WorkloadManagement/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where,<br><span class="varname">HTTPPort</span> is the port the Integration Server is listening on for HTTP requests<br><span class="varname">{PerfHarnessInstallPath} is the location in which perfharness.jar is installed<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
+										<li> In the console window run the PerfHarness Test Tool by typing the following command:<br><code>java -ms512M -mx512M -cp <span class="varname">{PerfHarnessInstallPath}</span>/perfharness.jar JMSPerfHarness -tc http.HTTPRequestor -rl 60 -jh localhost -jp <span class="varname">{HTTPPort}</span> -mf <span class="varname">{WorkspacePath}</span>/WorkloadManagement/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where,<br><span class="varname">{HTTPPort}</span> is the port the Integration Server is listening on for HTTP requests<br><span class="varname">{PerfHarnessInstallPath} is the location in which perfharness.jar is installed<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
 										
 										</span></li>
 									
