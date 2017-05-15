@@ -157,12 +157,12 @@
                     },
                     {
 
-                        "section": "This tutorial provides a simple message flow receives an XML input message over HTTP, performs a transformation and then sends an HTTP reply to the requesting application."
+                        "section": "This tutorial provides a message flow that performs a simple transformation of an XML input message received over HTTP before sending a reply to the requesting application."
 
                     },
                     {
 
-                        "section": "If you are using Developer Edition, which restricts message processing to 1 message per second, or your system is unable to process messages through the flow at a rate that exceeds 1 message per second then you will not be able to observe the effects of attaching a Workload Management Policy demonstated by this tutorial."
+                        "section": "If you are using Developer Edition, which restricts message processing to 1 message per second, or your system is unable to process messages through the flow at a rate that exceeds 1 message per second then you will not be able to observe the effects of attaching a Workload Management Policy that is demonstated by this tutorial."
 
                     }										
                 ]
@@ -381,7 +381,7 @@
 										},
 										{
 
-											"details":"Type in the following command to create a Workload Management Policy:<br><code><span class='cmdname'>mqsicreatepolicy</span> <span class='varname'>TESTNODE_userid</span> -t WorkloadManagement -l MaxRate1 -f <span class='varname'>{WorkspacePath}</span>/WorkloadManagement/Policies/MaxRate1.xml</span></code><br>where<br><span class='varname'>{WorkspacePath}</span> is the location of your current Toolkit workspace."
+											"details":"Type in the following command to create a Workload Management Policy:<br><code><span class='cmdname'>mqsicreatepolicy</span> <span class='varname'>TESTNODE_userid</span> -t WorkloadManagement -l MaxRate1 -f <span class='varname'>{WorkspacePath}</span>/WorkloadManagementApplication/Policies/MaxRate1.xml</span></code><br>where<br><span class='varname'>{WorkspacePath}</span> is the location of your current Toolkit workspace."
 
 										}										
 								]
@@ -393,7 +393,7 @@
                         	"section": "<h4>Deploy the WorkloadManagementApplication to the Integration Node</h4>"
 						},
 						{
-                        	"section": "Deploy the <span class='application'>WorkloadManagementApplication</span> application by clicking on <span class='uicontrol'>Deploy</span> or by dragging and dropping the <span class='application'>WorkloadManagementApplication</span> application on to the default integration server."
+                        	"section": "Deploy the <span class='application'>WorkloadManagementApplication</span> application by dragging and dropping the <span class='application'>WorkloadManagementApplication</span> application on to the default integration server."
                         }
                     ]					
                 },
@@ -462,7 +462,7 @@
 						},
 	                	{
 
-        	            	"section": "The PerfHarness Test Tool is used to generate a workload of HTTP request messages that are processed by the <span class='msgflow'>WorkloadManagementFlow</span> message flow. Run the PerfHarness Test Tool to generate the workload by completing the following steps:",
+        	            	"section": "The PerfHarness Test Tool is used to generate a workload of HTTP request messages that are processed by the <span class='msgflow'>WorkloadManagementFlow</span> message flow. You will need to download and install the PerfHarness tool from the link below. Once PerfHarness is installed generate the workload of input messages by completing the following steps:",
 							"steps":{
 	
 								"type":"ordered",
@@ -476,7 +476,7 @@
 									},
 									{
 
-										"details":"In the console window run the PerfHarness Test Tool by typing the following command:<br><code>java -ms512M -mx512M -cp <span class='varname'>{PerfHarnessInstallPath}</span>/perfharness.jar JMSPerfHarness -tc http.HTTPRequestor -rl 60 -jh localhost -jp <span class='varname'>{HTTPPort}</span> -mf <span class='varname'>{WorkspacePath}</span>/WorkloadManagement/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where,<br><span class='varname'>{HTTPPort}</span> is the port the Integration Server is listening on for HTTP requests<br><span class='varname'>{PerfHarnessInstallPath} is the location in which perfharness.jar is installed<br><span class='varname'>{WorkspacePath}</span> is the location of your current Toolkit workspace."
+										"details":"In the console window run the PerfHarness Test Tool by typing the following command:<br><code>java -ms512M -mx512M -cp <span class='varname'>{PerfHarnessInstallPath}</span>/perfharness.jar JMSPerfHarness -tc http.HTTPRequestor -rl 60 -jh localhost -jp <span class='varname'>{HTTPPort}</span> -mf <span class='varname'>{WorkspacePath}</span>/WorkloadManagementApplication/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where,<br><span class='varname'>{HTTPPort}</span> is the port the Integration Server is listening on for HTTP requests<br><span class='varname'>{PerfHarnessInstallPath} is the location in which perfharness.jar is installed<br><span class='varname'>{WorkspacePath}</span> is the location of your current Toolkit workspace."
 
 									},
 									{
