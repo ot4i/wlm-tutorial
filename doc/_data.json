@@ -393,7 +393,7 @@
                         	"section": "<h4>Deploy the WorkloadManagementApplication to the Integration Node</h4>"
 						},
 						{
-                        	"section": "Deploy the <span class='application'>WorkloadManagementApplication</span> application by dragging and dropping the <span class='application'>WorkloadManagementApplication</span> application on to the default integration server."
+                        	"section": "Deploy the <span class='application'>WorkloadManagementApplication</span> application by clicking on <span class='uicontrol'>Deploy</span>."
                         }
                     ]					
                 },
