@@ -233,11 +233,15 @@
 										
 										</li>
 									
-										<li> In the console window run the PerfHarness Test Tool by typing the following command:<br><code>java -ms512M -mx512M -cp <span class="varname">{PerfHarnessInstallPath}</span>/perfharness.jar JMSPerfHarness -tc http.HTTPRequestor -rl 60 -jh localhost -jp <span class="varname">{HTTPPort}</span> -mf <span class="varname">{WorkspacePath}</span>/WorkloadManagementApplication/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where,<br><span class="varname">{HTTPPort}</span> is the port the Integration Server is listening on for HTTP requests<br><span class="varname">{PerfHarnessInstallPath} is the location in which perfharness.jar is installed<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
+										<li> Check which port the default integration server is listening on for HTTP requests by running the following command:<br><code>mqsireportproperties TESTNODE_userid -e default -o HTTPConnector -n port</code>
+										
+										</li>
+									
+										<li> In the console window run the PerfHarness Test Tool by typing the following command:<br><code>java -ms512M -mx512M -cp <span class="varname">{PerfHarnessInstallPath}</span>/perfharness.jar JMSPerfHarness -tc http.HTTPRequestor -rl 90 -jh localhost -jp <span class="varname">{HTTPPort}</span> -mf <span class="varname">{WorkspacePath}</span>/WorkloadManagementApplication/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where,<br><span class="varname">{HTTPPort}</span> is the port the Integration Server is listening on for HTTP requests from the previous step<br><span class="varname">{PerfHarnessInstallPath} is the location in which perfharness.jar is installed<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
 										
 										</span></li>
 									
-										<li> PerfHarness will run for 60 seconds and output the message rate at which it is processing messages. The actual message rate achieved is dependent upon the performance of your system but it needs to be in excess of 1 message per second for you to observe the effects of applying the Workload Management Policy in this tutorial.
+										<li> PerfHarness will run for 90 seconds and output the message rate at which it is processing messages. The actual message rate achieved is dependent upon the performance of your system but it needs to be in excess of 1 message per second for you to observe the effects of applying the Workload Management Policy in this tutorial.
 										
 										</li>
 									
@@ -285,14 +289,14 @@
 							   	
 							
 								
-																
-								<li> <a href="javascript:;" onclick="openHelpSystem('/https://developer.ibm.com/open/2016/05/12/performance-testing-with-perfharness/')" title="developerWorks link to Performance testing with PerfHarness">Performance testing with PerfHarness</a> </li>
-							   	
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/open/2016/05/12/performance-testing-with-perfharness/')" title="developerWorks link to  Performance testing with PerfHarness">Performance testing with PerfHarness</a> </li>
+									
 							
 								
-																
-								<li> <a href="javascript:;" onclick="openHelpSystem('/https://github.com/ot4i/perf-harness?cm_mc_uid=42692352179214933019160&amp;cm_mc_sid_50200000=')" title="GitHub link to PerfHarness download">PerfHarness download</a> </li>
-							   	
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://github.com/ot4i/perf-harness?cm_mc_uid=42692352179214933019160&amp;cm_mc_sid_50200000=')" title="GitHub link to  PerfHarness download">PerfHarness download</a> </li>
+									
 							
 							</ul>
 						</div>
