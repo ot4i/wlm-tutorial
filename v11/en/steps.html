@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+ 
+	
+<!-- header::Start -->
+	<head>
+		<!-- Use Internet Explorer 9 Standards mode for Eclipse Browser Control - https://www.eclipse.org/swt/faq.php#browsernativeie and https://msdn.microsoft.com/en-us/library/jj676915%28v=vs.85%29.aspx -->
+  		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		
+		<!-- Next 2 http=equiv headers required to disable caching the Eclipse Browser Widget -->
+		<meta http-equiv="Pragma" content="no-cache">
+  		<meta http-equiv="Expires" content="-1">
+
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="copyright" content="Copyright IBM Corporation 2014" />
+		<meta name="abstract" content="IBM Integration Bus V10 Tutorial">
+		<meta name="author" content="IBM">
+		<meta name="description" content="IBM Integration Bus V10 Tutorial">
+		<meta name="keywords" content="keywords" > 
+		<meta name="robots" content="index,follow">
+		<meta name="source" content="IBM Integration Bus V10 Tutorial" /> 
+		
+		<title>IBM Integration Bus V10 Tutorial</title>
+
+    	<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/main.css" />
+		<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/app.css" />
+    	
+		<script src="https://ot4i.github.io/iib-tutorials/js/json2.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/js2java.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/js2java_steps.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/modernizr.js"></script>
+	</head>
+<!-- header::End -->
+<!-- body::Start -->
+		<body>
+  	<!-- body content here -->
+	<div class="row">
+	  <div class="small-12 medium-12 large-12 columns">
+	    <p> </p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="small-9 medium-9 large-9 columns">
+	    <h4 class="title">Using a Workload Management Policy to &#39;Throttle&#39; Throughput of a Message Flow <action><button class="small radius button" tabindex="0" id="stepsViewDetails" onclick="viewDetails()"> View Details</button> </action></h4>
+	  </div>
+	  <div class="small-3 medium-3 large-3 columns">
+		<a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.msgbroker.helphome.doc/help_home_msgbroker.htm')" class="small right helplink">IBM Knowledge Center</a> 
+	  </div>
+	</div> 
+	<hr>
+	<div class="row">
+		<div class="small-10 medium-10 large-10 columns">
+		<h5> Learn how to use a Workload Management Policy to control the throughput of a message flow. </h5>
+		</div>
+		<div class="small-2 medium-2 large-2 columns">
+			<button class="small radius button right" tabindex="0" id="backToGallery" onclick="backToGallery()"> Back To Gallery
+			</button>
+		</div>
+	</div>
+	<div class="row">          
+		  <div class="small-12 medium-12 large-12 columns">
+			<ul class="tabs vertical"> 
+				<li class="tab-title tab-title-small active">
+				  <a href="javascript:;" onclick="show('panel21')">Create</a> 
+				</li>
+				<li class="tab-title tab-title-small">
+				  <a href="javascript:;" onclick="show('panel31')">Prepare</a> 
+				</li>
+				<li class="tab-title tab-title-small">
+				  <a href="javascript:;" onclick="show('panel41')">Run</a> 
+				</li>
+			</ul>
+			<!-- editing -->
+			<div class="tabs-content panel-thin-blue vertical"> 
+		    	<div class="content active" id="panel21">
+		    		
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+				      	<div class="row content-details">
+					      	<h4>Import projects</h4>
+					        
+						    
+								<p> Click <span class="uicontrol">Import</span> to add an application called <span class="application">WorkloadManagementApplication</span> to your workspace. </p>
+								
+							
+								<p> The <span class="application">WorkloadManagementApplication</span> application contains the following resources. </p>
+								
+								
+									
+									<ul>
+									
+									
+										<li> <span class="msgflow">WorkloadManagementFlow</span> a message flow that receives an HTTP message, performs a simple transformation and then sends an HTTP reply.
+										
+										</li>
+									
+										<li> <span class="resource">MaxRate1.xml</span> a Workload Management Policy that sets the maximum message processing rate to 1 message per second.
+										
+										</li>
+									
+										<li> <span class="resource">TestMessage.xml</span> an XML input message to test the message flow with.
+										
+										</li>
+									
+									
+									</ul>
+									
+								
+							
+								<p> Once you import the tutorial the <span class="application">WorkloadManagementApplication</span> application is ready to be deployed and tested. Before you do this you will create the Workload Management Policy as described under the <span class="uicontrol">Prepare</span> tab. </p>
+								
+							
+						</div>
+						
+						<div class="row content-details">
+							<h4>Find out more</h4>
+							<ul>
+							
+								
+																
+								<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bj58250_.htm')" title="Knowledge Center link to Workload management">Workload management</a> </li>
+							   	
+							
+								
+																
+								<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bj58270_.htm')" title="Knowledge Center link to Setting the maximum rate for a message flow">Setting the maximum rate for a message flow</a> </li>
+							   	
+							
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="importArtifacts(); openResource('EventRoutingFlow')"> Import <img class="icon-image" src="https://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>
+										
+				    </div>
+					
+		    	</div>
+		    	<div class="content" id="panel31">
+					
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+						<div class="row content-details">
+						  	<h4></h4>
+						    
+						    
+								<p> Before deploying the <span class="application">WorkloadManagementApplication</span> application you will create the Workload Management Policy which you will later attach to the <span class="msgflow">WorkloadManagementFlow</span> message flow when you run the scenario. </p>
+								
+							
+								<p> <h4>Create the Workload Management Policy</h4> </p>
+								
+							
+								<p> A Workload Management Policy can be created using the Web Administration Tool or by using the command line. This tutorial provides an XML file called <span class="resource">MaxRate1.xml</span> which you will use to create a Workload Management Policy called <span class="resource">MaxRate1</span> using the command line. You will later apply this policy to the <span class="msgflow">WorkloadManagementFlow</span> message flow to ‘throttle’ its throughput to 1 message per second when you test the scenario. </p>
+								
+							
+								<p> To create the policy complete the following steps: </p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> Open an IBM Integration console.
+										
+										</li>
+									
+										<li> Type in the following command to create a Workload Management Policy:<br><code><span class="cmdname">mqsicreatepolicy</span> <span class="varname">TESTNODE_userid</span> -t WorkloadManagement -l MaxRate1 -f <span class="varname">{WorkspacePath}</span>/WorkloadManagementApplication/Policies/MaxRate1.xml</code><br>where<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+								<p> <h4>Deploy the WorkloadManagementApplication to the Integration Node</h4> </p>
+								
+							
+								<p> Deploy the <span class="application">WorkloadManagementApplication</span> application by clicking on <span class="uicontrol">Deploy</span>. </p>
+								
+							
+						</div>
+						
+						<div class="row content-details">
+							<h4>Find out more</h4>
+							<ul>
+							
+								
+																
+								<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bn34268_.htm')" title="Knowledge Center link to Creating policies by using the command line">Creating policies by using the command line</a> </li>
+							   	
+							
+							</ul>
+						</div>
+							
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="deployArtifacts()"> Deploy <img class="icon-image" src="https://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>						
+				    					
+				    </div>
+					
+		    	</div>
+		    	<div class="content" id="panel41">
+		    		
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+				    	<div class="row content-details">
+					      	<h4>Test the scenario</h4>
+					        
+						    
+								<p> To test the scenario, you will use two separate IBM Integration Console windows. In one console window you will generate a workload of messages and observe the message processing rate. While that workload is being processed you will use another console window to attach the Workload Management Policy that you created earlier to the <span class="msgflow">WorkloadManagementFlow</span> message flow. </p>
+								
+							
+								<p> <h4>Generating a workload of messages</h4> </p>
+								
+							
+								<p> The PerfHarness Test Tool is used to generate a workload of HTTP request messages that are processed by the <span class="msgflow">WorkloadManagementFlow</span> message flow. You will need to download and install the PerfHarness tool from the link below. Once PerfHarness is installed generate the workload of input messages by completing the following steps: </p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> Open an IBM Integration Console.
+										
+										</li>
+									
+										<li> Check which port the default integration server is listening on for HTTP requests by running the following command:<br><code>mqsireportproperties TESTNODE_userid -e default -o HTTPConnector -n port</code>
+										
+										</li>
+									
+										<li> In the console window run the PerfHarness Test Tool by typing the following command:<br><code>java -ms512M -mx512M -cp <span class="varname">{PerfHarnessInstallPath}</span>/perfharness.jar JMSPerfHarness -tc http.HTTPRequestor -rl 90 -jh localhost -jp <span class="varname">{HTTPPort}</span> -mf <span class="varname">{WorkspacePath}</span>/WorkloadManagementApplication/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where,<br><span class="varname">{HTTPPort}</span> is the port the Integration Server is listening on for HTTP requests from the previous step<br><span class="varname">{PerfHarnessInstallPath} is the location in which perfharness.jar is installed<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
+										
+										</span></li>
+									
+										<li> PerfHarness will run for 90 seconds and output the message rate at which it is processing messages. The actual message rate achieved is dependent upon the performance of your system but it needs to be in excess of 1 message per second for you to observe the effects of applying the Workload Management Policy in this tutorial.
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+								<p> <h4>Apply the Workload Management Policy to restrict the message throughput</h4> </p>
+								
+							
+								<p> Use the MaxRate1 Workload Management Policy to restrict the throughput of the <span class="msgflow">WorkloadManagementFlow</span> message flow by completing the following steps: </p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> Open another IBM Integration Console.
+										
+										</li>
+									
+										<li> In the console window attach the MaxRate1 policy to the <span class="msgflow">WorkloadManagementFlow</span> message flow by typing the following:<br><code>mqsiattachpolicy TESTNODE_userid -e default -k WorkloadManagementApplication -m WorkloadManagementFlow -t WorkloadManagement -l MaxRate1
+										
+										</code></li>
+									
+										<li> After attaching the Workload Management Policy observe that the message processing rate in the IBM Integration Console window running PerfHarness has dropped to approximately 1 message per second.
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+						</div>
+						
+						<div class="row content-details"> 	
+							<h4>Find out more</h4>
+							<ul>
+							
+								
+																
+								<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bn34254_.htm')" title="Knowledge Center link to mqsiattachpolicy command">mqsiattachpolicy command</a> </li>
+							   	
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/open/2016/05/12/performance-testing-with-perfharness/')" title="developerWorks link to  Performance testing with PerfHarness">Performance testing with PerfHarness</a> </li>
+									
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://github.com/ot4i/perf-harness?cm_mc_uid=42692352179214933019160&amp;cm_mc_sid_50200000=')" title="GitHub link to  PerfHarness download">PerfHarness download</a> </li>
+									
+							
+							</ul>
+						</div>
+							
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="cleanUp()" title="Clean up and remove any changes in your workspace made by the tutorial."> Clean Up <img class="icon-image" src="https://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/close-cancel-error_128-red.png"></a></h4>
+				    
+					
+				    </div>
+					
+				</div>	
+			</div> <!-- tab-content -->
+		</div> <!-- columns -->
+	  </div> <!-- row --></body>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/jquery.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/foundation.min.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/main.js"></script>
+	</body>
+<!-- body::End -->
+
+</html>
