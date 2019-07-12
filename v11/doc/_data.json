@@ -287,19 +287,7 @@
                             "link": "https://github.com/ot4i/perf-harness?cm_mc_uid=42692352179214933019160&cm_mc_sid_50200000=",							"type": "web"
                         }						
                     ]
-                },
-				"exits": 
-				{
-					"title": "Run Exits",
-					"details": 
-					[
-						{
-							"name": "Clean Up",
-							"description": "Clean up and remove any changes in your workspace made by the tutorial.",
-							"method": "cleanUp()"
-						}
-					]
-				}
+                }
             }
         }
     }
