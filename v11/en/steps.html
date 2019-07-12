@@ -15,14 +15,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<meta name="copyright" content="Copyright IBM Corporation 2014" />
-		<meta name="abstract" content="IBM Integration Bus V10 Tutorial">
+		<meta name="abstract" content="IBM App Connect Enterprise V11 Tutorial">
 		<meta name="author" content="IBM">
-		<meta name="description" content="IBM Integration Bus V10 Tutorial">
+		<meta name="description" content="IBM App Connect Enterprise V11 Tutorial">
 		<meta name="keywords" content="keywords" > 
 		<meta name="robots" content="index,follow">
-		<meta name="source" content="IBM Integration Bus V10 Tutorial" /> 
+		<meta name="source" content="IBM App Connect Enterprise V11 Tutorial" /> 
 		
-		<title>IBM Integration Bus V10 Tutorial</title>
+		<title>IBM App Connect Enterprise V11 Tutorial</title>
 
     	<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/main.css" />
 		<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/app.css" />
@@ -82,34 +82,43 @@
 					      	<h4>Import projects</h4>
 					        
 						    
-								<p> Click <span class="uicontrol">Import</span> to add an application called <span class="application">WorkloadManagementApplication</span> to your workspace. </p>
-								
-							
-								<p> The <span class="application">WorkloadManagementApplication</span> application contains the following resources. </p>
+								<p> Click <span class="uicontrol">Import</span> to add the required projects to your workspace: </p>
 								
 								
 									
-									<ul>
+									<ol>
 									
 									
-										<li> <span class="msgflow">WorkloadManagementFlow</span> a message flow that receives an HTTP message, performs a simple transformation and then sends an HTTP reply.
+										<li> The application named <span class="application">WorkloadManagementApplication</span> contains the following resources.
+										
+										
+											
+											<ul>
+											
+												
+													<li> A message flow named <span class="msgflow">WorkloadManagementFlow</span> that receives an HTTP message, performs a simple transformation and then sends an HTTP reply.</li>
+												
+													<li> An XML input message named <span class="resource">TestMessage.xml</span> to test the message flow with.</li>
+												
+													<li> A BAR File named <span class="resource">wlm.bar</span> which contains <span class="application">WorkloadManagementApplication</span>, which itself contains <span class="msgflow">WorkloadManagementFlow</span>. The message flow has been configured to refer to the Workload Management policy (which is described below).</li>
+												
+											
+											</ul>
+											
 										
 										</li>
 									
-										<li> <span class="resource">MaxRate1.xml</span> a Workload Management Policy that sets the maximum message processing rate to 1 message per second.
+										<li> The policy project named <span class="application">MyPolicies</span> contains a Workload Management Policy named <span class="application">WLM_MaxRate_Policy</span>. To start with this policy defines a Maximum Rate (messages per second) of 100,000. Later in the tutorial we will show the impact of changing this threshold.
 										
 										</li>
 									
-										<li> <span class="resource">TestMessage.xml</span> an XML input message to test the message flow with.
+										<li> The two java projects named <span class="application">PerfHarness</span> and <span class="application">HTTPPerfHarness</span> jointly provide a testing capability which we will use to drive workload through the message flow.
 										
 										</li>
 									
 									
-									</ul>
+									</ol>
 									
-								
-							
-								<p> Once you import the tutorial the <span class="application">WorkloadManagementApplication</span> application is ready to be deployed and tested. Before you do this you will create the Workload Management Policy as described under the <span class="uicontrol">Prepare</span> tab. </p>
 								
 							
 						</div>
@@ -149,53 +158,15 @@
 						  	<h4></h4>
 						    
 						    
-								<p> Before deploying the <span class="application">WorkloadManagementApplication</span> application you will create the Workload Management Policy which you will later attach to the <span class="msgflow">WorkloadManagementFlow</span> message flow when you run the scenario. </p>
+								<p> <h4>Deploy the Application, Message Flow and Workload Management Policy</h4> </p>
 								
 							
-								<p> <h4>Create the Workload Management Policy</h4> </p>
+								<p> This tutorial assumes you have an Integration node owned integration server, or a stand-alone integration server already created. Other tutorials in the tutorial gallery will help you with this if you're not sure what this means. </p>
 								
 							
-								<p> A Workload Management Policy can be created using the Web Administration Tool or by using the command line. This tutorial provides an XML file called <span class="resource">MaxRate1.xml</span> which you will use to create a Workload Management Policy called <span class="resource">MaxRate1</span> using the command line. You will later apply this policy to the <span class="msgflow">WorkloadManagementFlow</span> message flow to ‘throttle’ its throughput to 1 message per second when you test the scenario. </p>
+								<p> To deploy the artifacts either click the Deploy link on the right, or locate the provided BAR file named <span class="msgflow">wlm.bar</span> inside the application project named <span class="application">WorkloadManagementApplication</span>, and drag and drop it on to your integration server in the Integration Explorer view (by default shown in the bottom left corner of your Toolkit). </p>
 								
 							
-								<p> To create the policy complete the following steps: </p>
-								
-								
-									
-									<ol>
-									
-									
-										<li> Open an IBM Integration console.
-										
-										</li>
-									
-										<li> Type in the following command to create a Workload Management Policy:<br><code><span class="cmdname">mqsicreatepolicy</span> <span class="varname">TESTNODE_userid</span> -t WorkloadManagement -l MaxRate1 -f <span class="varname">{WorkspacePath}</span>/WorkloadManagementApplication/Policies/MaxRate1.xml</code><br>where<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
-										
-										</li>
-									
-									
-									</ol>
-									
-								
-							
-								<p> <h4>Deploy the WorkloadManagementApplication to the Integration Node</h4> </p>
-								
-							
-								<p> Deploy the <span class="application">WorkloadManagementApplication</span> application by clicking on <span class="uicontrol">Deploy</span>. </p>
-								
-							
-						</div>
-						
-						<div class="row content-details">
-							<h4>Find out more</h4>
-							<ul>
-							
-								
-																
-								<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bn34268_.htm')" title="Knowledge Center link to Creating policies by using the command line">Creating policies by using the command line</a> </li>
-							   	
-							
-							</ul>
 						</div>
 							
 					</div>
@@ -216,32 +187,40 @@
 					      	<h4>Test the scenario</h4>
 					        
 						    
-								<p> To test the scenario, you will use two separate IBM Integration Console windows. In one console window you will generate a workload of messages and observe the message processing rate. While that workload is being processed you will use another console window to attach the Workload Management Policy that you created earlier to the <span class="msgflow">WorkloadManagementFlow</span> message flow. </p>
+								<p> To test the scenario, you will generate a workload of messages for the message flow which runs for one minute. The message processing rate will be reported. Next, you will update the Workload Management Policy and redeploy it before repeating the one minute test, which will demonstrate the message processing rate being limited. </p>
 								
 							
 								<p> <h4>Generating a workload of messages</h4> </p>
 								
 							
-								<p> The PerfHarness Test Tool is used to generate a workload of HTTP request messages that are processed by the <span class="msgflow">WorkloadManagementFlow</span> message flow. You will need to download and install the PerfHarness tool from the link below. Once PerfHarness is installed generate the workload of input messages by completing the following steps: </p>
+								<p> The PerfHarness Test Tool is a small java utility written by IBM and freely available to help you generate a workload of HTTP request messages that are processed by the <span class="msgflow">WorkloadManagementFlow</span> message flow. The link below provides more details about the PerfHarness tool, but for simplicity the tool is already available for you to run from your Toolkit workspace using the projects you imported earlier in this tutorial: </p>
 								
 								
 									
 									<ol>
 									
 									
-										<li> Open an IBM Integration Console.
+										<li> Check the properties of your integration server to determine which port is being used by the HTTP Input node in the deployed message flow. By default this is likely to be port 7800.
 										
 										</li>
 									
-										<li> Check which port the default integration server is listening on for HTTP requests by running the following command:<br><code>mqsireportproperties TESTNODE_userid -e default -o HTTPConnector -n port</code>
+										<li> Expand the <span class="application">src</span> folder of the <span class="application">PerfHarness</span> project, right-click <span class="application">JMSPerfHarness.java</span> and choose the menu option Run > Run Configurations.
 										
 										</li>
 									
-										<li> In the console window run the PerfHarness Test Tool by typing the following command:<br><code>java -ms512M -mx512M -cp <span class="varname">{PerfHarnessInstallPath}</span>/perfharness.jar JMSPerfHarness -tc http.HTTPRequestor -rl 90 -jh localhost -jp <span class="varname">{HTTPPort}</span> -mf <span class="varname">{WorkspacePath}</span>/WorkloadManagementApplication/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where,<br><span class="varname">{HTTPPort}</span> is the port the Integration Server is listening on for HTTP requests from the previous step<br><span class="varname">{PerfHarnessInstallPath} is the location in which perfharness.jar is installed<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
+										<li> On the <span class="application">Main</span> tab, check that <span class="varname">Project = PerfHarness</span> and <span class="varname">Main class = JMSPerfHarness</span>
 										
-										</span></li>
+										</li>
 									
-										<li> PerfHarness will run for 90 seconds and output the message rate at which it is processing messages. The actual message rate achieved is dependent upon the performance of your system but it needs to be in excess of 1 message per second for you to observe the effects of applying the Workload Management Policy in this tutorial.
+										<li> On the <span class="application">Arguments</span> tab, copy and paste the following into the Program arguments text window: <code>-tc http.HTTPRequestor -rl 60 -jh localhost -jp <span class="varname">{HTTPPort}</span> -mf <span class="varname">{WorkspacePath}</span>/WorkloadManagementApplication/TestMessages/TestMessage.xml -wi 10 -to 10000 -sh false -ws 1 -dn 1 -sc BasicStats -ss 5 -nt 1 -ur wlm</code><br>where:<br><span class="varname">{HTTPPort}</span> is the port the Integration Server is listening on for HTTP requests from the previous step<br><span class="varname">{WorkspacePath}</span> is the location of your current Toolkit workspace.
+										
+										</li>
+									
+										<li> On the <span class="application">Classpath</span> tab, select <span class="application">User Entries</span>, click <span class="application">Add Projects</span>, and select the <span class="application">HTTPPerfHarness</span> and <span class="application">PerfHarness</span> projects
+										
+										</li>
+									
+										<li> When you click Run, the PerfHarness will run for 60 seconds and every 5 seconds output the message rate at which it is processing messages. The actual message rate achieved will be dependent upon the performance of your system but it needs to be in excess of 1 message per second for you to observe the effects of applying the Workload Management Policy in this tutorial.
 										
 										</li>
 									
@@ -250,31 +229,33 @@
 									
 								
 							
-								<p> <h4>Apply the Workload Management Policy to restrict the message throughput</h4> </p>
+								<p> <h4>Redeploy the Workload Management Policy with a lower rate to restrict the message throughput</h4> </p>
 								
 							
-								<p> Use the MaxRate1 Workload Management Policy to restrict the throughput of the <span class="msgflow">WorkloadManagementFlow</span> message flow by completing the following steps: </p>
+								<p> Use the <span class="application">WLM_MaxRate_Policy</span> Workload Management Policy to restrict the throughput of the <span class="msgflow">WorkloadManagementFlow</span> message flow by completing the following steps: </p>
 								
 								
 									
 									<ol>
 									
 									
-										<li> Open another IBM Integration Console.
+										<li> Look inside the <span class="application">MyPolicies</span> project, open <span class="application">WLM_MaxRate_Policy</span> and change the <span class="application">Maximum Rate (Messages per second)</span> parameter from its current value of 100000 to the value 1.
 										
 										</li>
 									
-										<li> In the console window attach the MaxRate1 policy to the <span class="msgflow">WorkloadManagementFlow</span> message flow by typing the following:<br><code>mqsiattachpolicy TESTNODE_userid -e default -k WorkloadManagementApplication -m WorkloadManagementFlow -t WorkloadManagement -l MaxRate1
-										
-										</code></li>
-									
-										<li> After attaching the Workload Management Policy observe that the message processing rate in the IBM Integration Console window running PerfHarness has dropped to approximately 1 message per second.
+										<li> Deploy the update by dragging and dropping the <span class="application">MyPolicies</span> project on to the integration server.
 										
 										</li>
 									
 									
 									</ol>
 									
+								
+							
+								<p> <h4>Re-run the workload with the new Workload Management Policy in place</h4> </p>
+								
+							
+								<p> Now the Workload Management Policy has been updated, repeat the same test as before and observe that the message processing rate has now been limited to 1 message per second. </p>
 								
 							
 						</div>
@@ -282,11 +263,6 @@
 						<div class="row content-details"> 	
 							<h4>Find out more</h4>
 							<ul>
-							
-								
-																
-								<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bn34254_.htm')" title="Knowledge Center link to mqsiattachpolicy command">mqsiattachpolicy command</a> </li>
-							   	
 							
 								
 								
