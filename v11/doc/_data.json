@@ -222,7 +222,7 @@
 										"details":"Check the properties of your integration server to determine which port is being used by the HTTP Input node in the deployed message flow. By default this is likely to be port 7800."
 									},
 									{
-										"details":"Expand the <span class='application'>src</span> folder of the <span class='application'>PerfHarness</span> project, right-click <span class='application'>JMSPerfHarness.java</span> and choose the menu option Run > Run Configurations."
+										"details":"Expand the <span class='application'>src</span> folder of the <span class='application'>PerfHarness</span> project, right-click <span class='application'>JMSPerfHarness.java</span> and choose the menu option Run As > Run Configurations. From the list, select Java Application and click the New button to create a new run configuration."
 									},
 									{
 										"details":"On the <span class='application'>Main</span> tab, check that <span class='varname'>Project = PerfHarness</span> and <span class='varname'>Main class = JMSPerfHarness</span>"
