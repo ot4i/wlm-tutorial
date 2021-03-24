@@ -32,7 +32,7 @@
 	{
         "_common": 
 		{
-            "name": "Using a Workload Management Policy to 'Throttle' Throughput of a Message Flow",
+            "name": "Using a Workload Management Policy to restrict the maximum throughput of a flow",
             "shortDescription": "Learn how to use a Workload Management Policy to control the throughput of a message flow.",
             "durationText": "This tutorial takes approximately",
             "durationTime": "15 minutes",
